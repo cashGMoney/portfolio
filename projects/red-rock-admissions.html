@@ -14,6 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/style.css">
+  <script src="../assets/js/data-model.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -86,8 +87,8 @@
           <li><strong>A live leadership dashboard.</strong> Applicants, acceptances, cohort fill levels and waitlists by program, so nobody builds reports by hand.</li>
         </ul>
       <figure class="figure">
-        <img src="../assets/img/red-rock-data-model.png" alt="Data model diagram showing ten connected Zoho modules: Inquiries, Applications, Testing Center, Enrolled, Programs, Courses, Cohorts, Books, Materials and Associated Costs.">
-        <figcaption>The data model. Cohorts sit at the center, connecting programs and courses to the students who apply, enroll and pay for books and materials.</figcaption>
+        <div class="dm" data-model="interactive"></div>
+        <figcaption>The data model. Select any module to highlight what it connects to. Cohorts sit at the center, linking programs and courses to the students who apply, enroll and pay for books and materials.</figcaption>
       </figure>
 
         <h2>Walkthrough chapters</h2>
@@ -118,13 +119,17 @@
 
   <footer class="site-footer">
     <div class="wrap">
-      <h2>Let's talk</h2>
-      <p>I'm open to CRM administration, business systems and data roles, full-time or freelance.</p>
-      <ul class="footer-links">
-        <li><a href="mailto:cashgines89@gmail.com">cashgines89@gmail.com</a></li>
-        <li><a href="https://www.linkedin.com/in/your-profile">LinkedIn</a></li>
-        <li><a href="https://github.com/your-username">GitHub</a></li>
-      </ul>
+      <div class="footer-top">
+        <div>
+          <h2>Let's talk</h2>
+          <p>I'm open to CRM administration, business systems and data roles, full-time or freelance.</p>
+        </div>
+        <ul class="footer-links">
+          <li><a href="mailto:cashgines89@gmail.com">cashgines89@gmail.com</a></li>
+          <li><a href="https://www.linkedin.com/in/your-profile">LinkedIn</a></li>
+          <li><a href="https://github.com/your-username">GitHub</a></li>
+        </ul>
+      </div>
       <p class="footer-meta">© 2026 Cash Gines · Southern Utah</p>
     </div>
   </footer>
