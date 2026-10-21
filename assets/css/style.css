@@ -153,7 +153,7 @@ main { display: block; }
 }
 .page-head { padding: clamp(48px, 7vw, 80px) 0 clamp(32px, 5vw, 48px); }
 .page-head h1 { margin-bottom: 0.3em; }
-.page-head .lead { margin-bottom: 0; }
+.page-head .lead { margin-bottom: 0; max-width: none; }
 .section-intro { margin-bottom: 36px; }
 .section-intro > :last-child { margin-bottom: 0; }
 .lead { font-size: 1.2rem; color: var(--text); }
