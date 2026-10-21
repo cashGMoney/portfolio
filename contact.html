@@ -39,7 +39,7 @@
         <div class="contact-grid">
         <!-- Submissions go straight into the Zoho form "PortfolioForm" (Let's Connect).
              Field names must match Zoho's: Name_First, Name_Last, Email, PhoneNumber_countrycode, MultiLine. -->
-        <form class="contact-form" action="https://forms.zohopublic.com/xmailportal6181/form/PortfolioForm/formperma/-TU3LKxwWbNU48P7LGaumOKLAkXOldXAA4igSm7GN7I/htmlRecords/submit" method="POST" accept-charset="UTF-8" enctype="multipart/form-data" target="zoho-target">
+        <form class="contact-form" action="https://forms.zohopublic.com/xmailportal6181/form/PortfolioForm/formperma/h_zQLlcX_qV4YJyNJSeuHrp0sUPFMmdBtfnPvlSicVI/htmlRecords/submit" method="POST" accept-charset="UTF-8" enctype="multipart/form-data" target="zoho-target">
           <input type="hidden" name="zf_referrer_name" value="">
           <input type="hidden" name="zf_redirect_url" value="">
           <input type="hidden" name="zc_gad" value="">
@@ -59,7 +59,7 @@
           </div>
           <div class="field">
             <label for="phone">Phone <span class="optional">(optional)</span></label>
-            <input id="phone" name="PhoneNumber_countrycode" type="tel" autocomplete="tel" maxlength="20">
+            <input id="phone" name="PhoneNumber_countrycode" type="tel" autocomplete="tel" maxlength="20" pattern="[+]?[()0-9\-. ]+" title="Numbers only, for example 435-555-0100">
           </div>
           <div class="field">
             <label for="message">Message</label>
@@ -68,7 +68,6 @@
           <button class="btn btn-primary" type="submit">Send message</button>
           <p class="form-status" role="status" aria-live="polite"></p>
         </form>
-        <iframe name="zoho-target" class="zoho-target" title="Form submission" tabindex="-1" aria-hidden="true"></iframe>
           <aside class="contact-aside">
             <h2>Good to know</h2>
             <ul>
@@ -78,6 +77,7 @@
             </ul>
           </aside>
         </div>
+        <iframe name="zoho-target" class="zoho-target" title="Form submission" tabindex="-1" aria-hidden="true" style="position:absolute;width:0;height:0;border:0;visibility:hidden;"></iframe>
       </div>
     </section>
   </main>
