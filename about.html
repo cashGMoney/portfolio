@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/lightbox.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -43,6 +44,44 @@
             <a class="btn btn-secondary" href="mailto:cashgines89@gmail.com">Email me</a>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-intro"><h2>Awards and honors</h2></div>
+        <ul class="awards">
+          <li class="award">
+            <a class="award-img" href="assets/img/credentials/award-outstanding-student-2026.jpg" data-lightbox data-caption="2026 Outstanding Student">
+              <img src="assets/img/credentials/award-outstanding-student-2026-thumb.jpg" alt="2026 Outstanding Student" loading="lazy">
+            </a>
+            <div class="award-body">
+              <h3>2026 Outstanding Student</h3>
+              <p class="award-org">Software Development, Southwest Technical College</p>
+              <p class="award-date">Navigator Night of Excellence, 2026</p>
+            </div>
+          </li>
+          <li class="award">
+            <a class="award-img" href="assets/img/credentials/award-better-together-2025.jpg" data-lightbox data-caption="Better Together Award">
+              <img src="assets/img/credentials/award-better-together-2025-thumb.jpg" alt="Better Together Award" loading="lazy">
+            </a>
+            <div class="award-body">
+              <h3>Better Together Award</h3>
+              <p class="award-org">Southwest Technical College</p>
+              <p class="award-date">2025</p>
+            </div>
+          </li>
+          <li class="award">
+            <a class="award-img" href="assets/img/credentials/nths-induction-2025.jpg" data-lightbox data-caption="National Technical Honor Society">
+              <img src="assets/img/credentials/nths-induction-2025-thumb.jpg" alt="National Technical Honor Society" loading="lazy">
+            </a>
+            <div class="award-body">
+              <h3>National Technical Honor Society</h3>
+              <p class="award-org">Inducted for excellence in career and technical education at Southwest Technical College</p>
+              <p class="award-date">May 2025</p>
+            </div>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -128,31 +167,67 @@
             </div>
           </li>
           <li>
-            <div class="when">Completed</div>
+            <div class="when">January 2026</div>
             <div>
-              <h3>Software Development</h3>
+              <h3>Software Development, Certificate</h3>
               <div class="where">Southwest Technical College</div>
+              <a class="view-doc" href="assets/img/credentials/stech-software-development-2026.jpg" data-lightbox data-caption="Software Development, Certificate">View document</a>
             </div>
           </li>
           <li>
-            <div class="when">2021 to 2022</div>
+            <div class="when">March 2022</div>
             <div>
               <h3>Web and Mobile Development, Certificate</h3>
               <div class="where">Bridgerland Technical College</div>
+              <a class="view-doc" href="assets/img/credentials/bridgerland-web-mobile-2022.jpg" data-lightbox data-caption="Web and Mobile Development, Certificate">View document</a>
             </div>
           </li>
           <li>
-            <div class="when">2010</div>
+            <div class="when">December 2009</div>
             <div>
-              <h3>Accounting Technician, Certificate</h3>
-              <div class="where">Uintah Basin Technical College</div>
-            </div>
-          </li>
-          <li>
-            <div class="when">2008 to 2009</div>
-            <div>
-              <h3>Drafting and Design, Applied Associate</h3>
+              <h3>Associate in Applied Science, Drafting Technology</h3>
               <div class="where">Utah Valley University</div>
+              <a class="view-doc" href="assets/img/credentials/uvu-aas-drafting-2009.jpg" data-lightbox data-caption="Associate in Applied Science, Drafting Technology">View document</a>
+            </div>
+          </li>
+          <li>
+            <div class="when">August 2007</div>
+            <div>
+              <h3>Associate of Science, General Studies</h3>
+              <div class="where">Utah State University</div>
+              <a class="view-doc" href="assets/img/credentials/usu-as-general-studies-2007.jpg" data-lightbox data-caption="Associate of Science, General Studies">View document</a>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-intro"><h2>Certifications and training</h2></div>
+        <ol class="timeline">
+          <li>
+            <div class="when">October 2026</div>
+            <div>
+              <h3>STECH Leadership Academy</h3>
+              <div class="where">Southwest Technical College</div>
+              <a class="view-doc" href="assets/img/credentials/stech-leadership-academy-2026.jpg" data-lightbox data-caption="STECH Leadership Academy">View document</a>
+            </div>
+          </li>
+          <li>
+            <div class="when">August 2010</div>
+            <div>
+              <h3>Accounting Technician</h3>
+              <div class="where">Uintah Basin Applied Technology College</div>
+              <a class="view-doc" href="assets/img/credentials/ubatc-accounting-technician-2010.jpg" data-lightbox data-caption="Accounting Technician">View document</a>
+            </div>
+          </li>
+          <li>
+            <div class="when">August 2010</div>
+            <div>
+              <h3>Business Administrative Support I</h3>
+              <div class="where">Uintah Basin Applied Technology College</div>
+              <a class="view-doc" href="assets/img/credentials/ubatc-business-admin-support-2010.jpg" data-lightbox data-caption="Business Administrative Support I">View document</a>
             </div>
           </li>
         </ol>
@@ -176,5 +251,10 @@
       <p class="footer-meta">© 2026 Cash Gines · Southern Utah</p>
     </div>
   </footer>
+  <dialog class="lightbox" aria-label="Document viewer">
+    <button class="lightbox-close" type="button" aria-label="Close">&times;</button>
+    <img alt="">
+    <p class="lightbox-caption"></p>
+  </dialog>
 </body>
 </html>
