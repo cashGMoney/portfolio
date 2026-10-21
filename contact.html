@@ -10,7 +10,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
-  <script src="assets/js/contact.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -36,28 +35,11 @@
 
     <section class="section band">
       <div class="wrap">
-        <!-- To receive messages: create a free form at formspree.io, then replace YOUR_FORM_ID below with your form's ID. -->
         <div class="contact-grid">
-        <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-          <div class="field">
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" autocomplete="name" required>
-          </div>
-          <div class="field">
-            <label for="contact">Email or phone</label>
-            <input id="contact" name="contact" type="text" autocomplete="email" required>
-            <p class="field-hint">Whichever you'd like me to reply to.</p>
-          </div>
-          <div class="field">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="6" required></textarea>
-          </div>
-          <!-- Hidden field that catches spam bots -->
-          <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <input type="hidden" name="_subject" value="New message from your portfolio">
-          <button class="btn btn-primary" type="submit">Send message</button>
-          <p class="form-status" role="status" aria-live="polite"></p>
-        </form>
+        <!-- The form is built and managed in Zoho Forms. Edit fields, wording and colors there. -->
+        <div class="zoho-form">
+          <iframe aria-label="Contact form" title="Contact form" src="https://forms.zoho.com/xmailportal6181/form/PortfolioForm" loading="lazy"></iframe>
+        </div>
           <aside class="contact-aside">
             <h2>Good to know</h2>
             <ul>
