@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | Cash Gines</title>
+  <meta name="description" content="Send Cash Gines a message.">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/contact.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">Cash Gines</a>
+      <nav class="nav" aria-label="Main">
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About</a>
+        <a href="assets/resume.pdf">Resume</a>
+        <a href="contact.html" aria-current="page">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-head">
+      <div class="wrap">
+        <h1>Let's connect</h1>
+        <p class="lead">Questions about a project, an idea to share or just want to say hello? Send a note and I'll get back to you.</p>
+      </div>
+    </section>
+
+    <section class="section band">
+      <div class="wrap">
+        <!-- To receive messages: create a free form at formspree.io, then replace YOUR_FORM_ID below with your form's ID. -->
+        <div class="contact-grid">
+        <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="contact">Email or phone</label>
+            <input id="contact" name="contact" type="text" autocomplete="email" required>
+            <p class="field-hint">Whichever you'd like me to reply to.</p>
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+          </div>
+          <!-- Hidden field that catches spam bots -->
+          <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <input type="hidden" name="_subject" value="New message from your portfolio">
+          <button class="btn btn-primary" type="submit">Send message</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+          <aside class="contact-aside">
+            <h2>Good to know</h2>
+            <ul>
+              <li><strong>Replies</strong>I usually respond within a couple of days.</li>
+              <li><strong>LinkedIn</strong>You can also <a href="https://www.linkedin.com/in/your-profile">connect with me on LinkedIn</a>.</li>
+              <li><strong>Based in</strong>Southern Utah, happy to meet virtually.</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div>
+          <h2>Let's connect</h2>
+          <p>I always enjoy meeting people who work in CRM, data and business systems, whether it's swapping ideas or a conversation about what's next.</p>
+        </div>
+        <ul class="footer-links">
+          <li><a class="btn btn-light" href="contact.html">Get in touch</a></li>
+          <li><a href="https://www.linkedin.com/in/your-profile">LinkedIn</a></li>
+        </ul>
+      </div>
+      <p class="footer-meta">© 2026 Cash Gines · Southern Utah</p>
+    </div>
+  </footer>
+</body>
+</html>
