@@ -18,7 +18,6 @@ A plain HTML and CSS portfolio that runs on GitHub Pages. No build tools needed.
 
 Your name, email, resume and project content are already in place. Remaining:
 
-- **LinkedIn and GitHub links.** Press `Ctrl+Shift+H` in VS Code and replace `your-profile` and `your-username` across all files.
 - **Headshot (optional).** To swap in a professional photo, replace the four `assets/img/headshot-*.jpg` files (320, 640, 960 and 1200 pixels wide, 4:5 portrait) with versions of the new photo, keeping the same names.
 - **Video.** Paste your YouTube embed into `projects/red-rock-admissions.html` (look for the comment), then update the chapter times.
 - **Screenshot (optional).** The home and projects pages use the data model image. Swap in a screenshot of your Zoho build if you prefer.
