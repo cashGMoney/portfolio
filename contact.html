@@ -37,10 +37,38 @@
     <section class="section band">
       <div class="wrap">
         <div class="contact-grid">
-        <!-- The form is built and managed in Zoho Forms. Edit fields, wording and colors there. -->
-        <div class="zoho-form">
-          <iframe aria-label="Let's Connect form" title="Let's Connect form" src="https://forms.zohopublic.com/xmailportal6181/form/PortfolioForm/formperma/-TU3LKxwWbNU48P7LGaumOKLAkXOldXAA4igSm7GN7I?zf_rszfm=1" scrolling="no"></iframe>
-        </div>
+        <!-- Submissions go straight into the Zoho form "PortfolioForm" (Let's Connect).
+             Field names must match Zoho's: Name_First, Name_Last, Email, PhoneNumber_countrycode, MultiLine. -->
+        <form class="contact-form" action="https://forms.zohopublic.com/xmailportal6181/form/PortfolioForm/formperma/-TU3LKxwWbNU48P7LGaumOKLAkXOldXAA4igSm7GN7I/htmlRecords/submit" method="POST" accept-charset="UTF-8" enctype="multipart/form-data" target="zoho-target">
+          <input type="hidden" name="zf_referrer_name" value="">
+          <input type="hidden" name="zf_redirect_url" value="">
+          <input type="hidden" name="zc_gad" value="">
+          <div class="field-row">
+            <div class="field">
+              <label for="first">First name</label>
+              <input id="first" name="Name_First" type="text" autocomplete="given-name" maxlength="255" required>
+            </div>
+            <div class="field">
+              <label for="last">Last name</label>
+              <input id="last" name="Name_Last" type="text" autocomplete="family-name" maxlength="255">
+            </div>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="Email" type="email" autocomplete="email" maxlength="255" required>
+          </div>
+          <div class="field">
+            <label for="phone">Phone <span class="optional">(optional)</span></label>
+            <input id="phone" name="PhoneNumber_countrycode" type="tel" autocomplete="tel" maxlength="20">
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="MultiLine" rows="6" maxlength="65535" required></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit">Send message</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+        <iframe name="zoho-target" class="zoho-target" title="Form submission" tabindex="-1" aria-hidden="true"></iframe>
           <aside class="contact-aside">
             <h2>Good to know</h2>
             <ul>

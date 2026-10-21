@@ -1,21 +1,41 @@
-/* Sizes the Zoho Forms frame to fit the whole form, so it never scrolls
-   inside itself. Zoho sends the form's height when the link ends with
-   ?zf_rszfm=1. This is the same method as Zoho's own JavaScript embed. */
+/* Sends the contact form to Zoho Forms through a hidden frame, so the
+   visitor stays on this page, then shows a thank-you message. */
 (function () {
   "use strict";
-  window.addEventListener("message", function (event) {
-    if (!/\.zohopublic\.com$/.test(new URL(event.origin).hostname)) return;
-    if (typeof event.data !== "string") return;
-    var parts = event.data.split("|");
-    if (parts.length < 2) return;
-    var perma = parts[0];
-    var height = parseInt(parts[1], 10);
-    if (!perma || !height) return;
-    var frames = document.querySelectorAll(".zoho-form iframe");
-    for (var i = 0; i < frames.length; i++) {
-      if (frames[i].src.indexOf(perma) !== -1) {
-        frames[i].style.height = (height + 15) + "px";
-      }
+  var form = document.querySelector(".contact-form");
+  var target = document.querySelector(".zoho-target");
+  if (!form || !target) return;
+  var status = form.querySelector(".form-status");
+  var button = form.querySelector("button[type=submit]");
+  var sending = false;
+  var timer = null;
+
+  function done(ok) {
+    if (!sending) return;
+    sending = false;
+    clearTimeout(timer);
+    button.disabled = false;
+    button.textContent = "Send message";
+    if (ok) {
+      form.reset();
+      status.className = "form-status is-success";
+      status.textContent = "Thanks, your message was sent. I'll be in touch soon.";
+    } else {
+      status.className = "form-status is-error";
+      status.textContent = "Your message didn't send. Please try again, or reach me on LinkedIn.";
     }
-  }, false);
+  }
+
+  form.addEventListener("submit", function () {
+    // Let the browser post the form into the hidden frame.
+    sending = true;
+    button.disabled = true;
+    button.textContent = "Sending…";
+    status.className = "form-status";
+    status.textContent = "";
+    timer = setTimeout(function () { done(false); }, 20000);
+  });
+
+  // The hidden frame loads Zoho's confirmation page once the entry is saved.
+  target.addEventListener("load", function () { done(true); });
 })();
