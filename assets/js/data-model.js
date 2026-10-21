@@ -14,26 +14,33 @@
   // Each module: display name, short description, and its position in
   // the wide (desktop) and narrow (phone) layouts. Positions are centers.
   var MODULES = {
-    testing:  { name: "Testing Center.RR",  wide: [110, 70],  narrow: [92, 40],
+    testing:  { name: "Testing Center.RR", group: "students",  wide: [110, 70],  narrow: [92, 40],
       about: "Accuplacer bookings from Zoho Bookings, with math, reading, writing and essay scores." },
-    inquiries:{ name: "Inquiries.RR",       wide: [420, 50],  narrow: [268, 40],
+    inquiries:{ name: "Inquiries.RR", group: "students",       wide: [420, 50],  narrow: [268, 40],
       about: "First contact at the front desk: name, email, program of interest and preferred cohort. Converts into an application." },
-    apps:     { name: "Applications.RR",    wide: [270, 160], narrow: [92, 130],
+    apps:     { name: "Applications.RR", group: "students",    wide: [270, 160], narrow: [92, 130],
       about: "The applicant's record: program, cohort schedule, ACT/SAT check, Accuplacer results, required documents and stage." },
-    programs: { name: "Programs.RR",        wide: [860, 80],  narrow: [268, 130],
+    programs: { name: "Programs.RR", group: "catalog",        wide: [860, 80],  narrow: [268, 130],
       about: "Each program offered, with its description and total hours." },
-    enrolled: { name: "Enrolled.RR",        wide: [100, 280], narrow: [92, 220],
+    enrolled: { name: "Enrolled.RR", group: "students",        wide: [100, 280], narrow: [92, 220],
       about: "Students with a confirmed seat, tied to their cohort's schedule and current stage." },
-    courses:  { name: "Courses.RR",         wide: [720, 200], narrow: [268, 220],
+    courses:  { name: "Courses.RR", group: "catalog",         wide: [720, 200], narrow: [268, 220],
       about: "The courses inside each program, with hours and the order they're taken in." },
-    cohorts:  { name: "Cohorts.RR",         wide: [520, 320], narrow: [180, 330],
+    cohorts:  { name: "Cohorts.RR", group: "catalog",         wide: [520, 320], narrow: [180, 330],
       about: "A scheduled run of a course: start and end dates, days, hours per day, seat capacity, tuition and fees." },
-    materials:{ name: "Materials.RR",       wide: [330, 420], narrow: [78, 440],
+    materials:{ name: "Materials.RR", group: "costs",       wide: [330, 420], narrow: [78, 440],
       about: "Supplies a cohort needs, with the cost of each." },
-    books:    { name: "Books.RR",           wide: [610, 430], narrow: [180, 530],
+    books:    { name: "Books.RR", group: "costs",           wide: [610, 430], narrow: [180, 530],
       about: "Required textbooks with ISBN and cost." },
-    costs:    { name: "AssociatedCosts.RR", wide: [830, 360], narrow: [282, 440],
+    costs:    { name: "AssociatedCosts.RR", group: "costs", wide: [830, 360], narrow: [282, 440],
       about: "Other fees and items attached to a cohort." }
+  };
+
+  // Color groups. The colors themselves live in style.css (.grp-*).
+  var GROUPS = {
+    students: "Student records",
+    catalog:  "Programs and scheduling",
+    costs:    "Costs and materials"
   };
 
   // Connections between modules (lookups in Zoho). Order doesn't matter.
@@ -70,7 +77,7 @@
   }
 
   function nodeWidth(name) {
-    return Math.round(name.length * 7.6 + 30);
+    return Math.round(name.length * 7.6 + 44);
   }
 
   function neighbors(id) {
@@ -121,6 +128,18 @@
     stage.className = "dm-stage";
     container.appendChild(stage);
 
+    if (interactive) {
+      var legend = document.createElement("ul");
+      legend.className = "dm-legend";
+      Object.keys(GROUPS).forEach(function (key) {
+        var li = document.createElement("li");
+        li.className = "grp-" + key;
+        li.textContent = GROUPS[key];
+        legend.appendChild(li);
+      });
+      container.appendChild(legend);
+    }
+
     var panel = null;
     if (interactive) {
       panel = document.createElement("div");
@@ -163,9 +182,10 @@
 
       Object.keys(MODULES).forEach(function (id) {
         var g = geo[id];
-        var group = el("g", { "class": "dm-node", transform: "translate(" + (g.x - g.w / 2) + " " + (g.y - NODE_H / 2) + ")" });
+        var group = el("g", { "class": "dm-node grp-" + MODULES[id].group, transform: "translate(" + (g.x - g.w / 2) + " " + (g.y - NODE_H / 2) + ")" });
         group.appendChild(el("rect", { width: g.w, height: NODE_H, rx: 8 }));
-        var text = el("text", { x: g.w / 2, y: NODE_H / 2, "dominant-baseline": "central", "text-anchor": "middle" });
+        group.appendChild(el("circle", { cx: 16, cy: NODE_H / 2, r: 4.5, "class": "dm-dot" }));
+        var text = el("text", { x: g.w / 2 + 7, y: NODE_H / 2, "dominant-baseline": "central", "text-anchor": "middle" });
         text.textContent = MODULES[id].name;
         group.appendChild(text);
 
@@ -231,6 +251,9 @@
       var m = MODULES[id];
       var title = document.createElement("h3");
       title.textContent = m.name;
+      var tag = document.createElement("p");
+      tag.className = "dm-tag grp-" + m.group;
+      tag.textContent = GROUPS[m.group];
       var about = document.createElement("p");
       about.textContent = m.about;
       var label = document.createElement("p");
@@ -250,6 +273,7 @@
         li.appendChild(btn);
         list.appendChild(li);
       });
+      panel.appendChild(tag);
       panel.appendChild(title);
       panel.appendChild(about);
       panel.appendChild(label);
