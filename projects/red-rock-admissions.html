@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Red Rock Technical College Admissions CRM | Cash Gines</title>
+  <meta name="description" content="Case study and video walkthrough: replacing a shared admissions spreadsheet with a Zoho CRM for a fictional technical college.">
+  <!-- Preview shown when this page is shared on LinkedIn -->
+  <meta property="og:title" content="Building an admissions CRM in Zoho: Red Rock Technical College">
+  <meta property="og:description" content="How I replaced a 1,000-row shared spreadsheet with role-based records and automated hand-offs across five teams.">
+  <meta property="og:type" content="article">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html">Cash Gines</a>
+      <nav class="nav" aria-label="Main">
+        <a href="../projects.html" aria-current="page">Projects</a>
+        <a href="../about.html">About</a>
+        <a href="../assets/resume.pdf">Resume</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+      <header class="case-header">
+        <a class="back-link" href="../projects.html">All projects</a>
+        <h1>An admissions CRM for Red Rock Technical College</h1>
+        <p class="lead">Five teams, one shared spreadsheet and a lot of students falling through the cracks. I interviewed each team, mapped the process end to end and designed a Zoho CRM that moves a student from first inquiry to enrollment.</p>
+        <dl class="facts">
+          <div><dt>Role</dt><dd>Solo, analysis to build</dd></div>
+          <div><dt>Platform</dt><dd>Zoho CRM, Zoho Bookings</dd></div>
+          <div><dt>Timeline</dt><dd>Fall 2026</dd></div>
+          <div><dt>Context</dt><dd>CRM Administration, Dixie Tech</dd></div>
+        </dl>
+      </header>
+
+      <section class="case-video" aria-label="Video walkthrough">
+        <div class="media-frame">
+          <!-- Paste your YouTube embed here (YouTube > Share > Embed), for example:
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Red Rock admissions CRM walkthrough"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+          -->
+          <div class="media-placeholder">Your walkthrough video goes here</div>
+        </div>
+      </section>
+
+      <article class="prose">
+        <h2>The problem</h2>
+        <p>Red Rock Technical College is a fictional school whose front desk, admissions advisors, testing center, support coordinators and registrar all worked from one spreadsheet. It had more than 1,000 rows, everyone could edit it, and every filtered view one person made changed it for everyone else.</p>
+        <p>Hand-offs happened by email and phone, so details were lost between teams. Students repeated themselves after every transfer. Social Security numbers and disability answers were visible to staff who never needed them. Waitlisted students heard about open seats too late, and those seats went empty.</p>
+
+        <h2>How I approached it</h2>
+        <p>I ran discovery interviews with each of the five teams and wrote down every step, hand-off and complaint. That produced 22 specific problems, each with an ID so it could be traced from the interview notes to the proposal and into the build. From there I created:</p>
+        <ul>
+          <li>A swimlane workflow showing every decision point, from the first inquiry to a student's final outcome</li>
+          <li>A data model and data glossary defining each module, field and relationship</li>
+          <li>A client proposal that pairs every problem with its fix and lists what the college needs to provide</li>
+        </ul>
+      </article>
+    </div>
+
+    <section class="section" style="padding-top: 24px;">
+      <div class="wrap">
+        <h2>What I found</h2>
+        <ul class="problems">
+          <li><strong>Everyone could edit everything</strong>One spreadsheet for every team, with no limits on access.</li>
+          <li><strong>Sensitive data was exposed</strong>SSNs, race, gender and disability answers were visible to all users.</li>
+          <li><strong>No owner when someone was out</strong>Coworkers had to dig through rows and call students to find out where things stood.</li>
+          <li><strong>Students had to repeat themselves</strong>Nothing carried over from the front desk to admissions.</li>
+          <li><strong>Testing results got lost</strong>Scores were emailed, sometimes entered wrong and sometimes never arrived.</li>
+          <li><strong>Seats went empty</strong>The waitlist was worked by hand, so students were notified too late or not at all.</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <article class="prose">
+        <h2>The solution</h2>
+        <ul>
+          <li><strong>Connected records instead of one sheet.</strong> Ten related modules for inquiries, applications, testing, programs, courses, cohorts, enrollment and costs, linked so information is entered once and flows forward.</li>
+          <li><strong>Access by role.</strong> Profiles give each team only what its job requires. The front desk can see a student's program and current stage but never sensitive fields.</li>
+          <li><strong>A clear pipeline.</strong> Every application has an owner and moves through Inquiry, Applied, Documents and Testing, Ready for Review, Accepted or Waitlisted, and Enrolled.</li>
+          <li><strong>Automation for routine follow-up.</strong> Workflow rules check ACT/SAT scores against program requirements, send reminders for missing documents, mark stalled applications inactive and notify the support coordinator once the checklist is complete.</li>
+          <li><strong>Online test scheduling.</strong> Students book Accuplacer sessions through Zoho Bookings, can flag ADA accommodations, and results go straight onto their record.</li>
+          <li><strong>A live leadership dashboard.</strong> Applicants, acceptances, cohort fill levels and waitlists by program, so nobody builds reports by hand.</li>
+        </ul>
+      </article>
+
+      <figure class="figure" style="margin-top: 40px;">
+        <img src="../assets/img/red-rock-data-model.png" alt="Data model diagram showing ten connected Zoho modules: Inquiries, Applications, Testing Center, Enrolled, Programs, Courses, Cohorts, Books, Materials and Associated Costs.">
+        <figcaption>The data model. Cohorts sit at the center, connecting programs and courses to the students who apply, enroll and pay for books and materials.</figcaption>
+      </figure>
+
+      <article class="prose" style="margin-top: 56px;">
+        <h2>Walkthrough chapters</h2>
+        <p>Jump to a section of the video.</p>
+      </article>
+
+      <!-- Update these times and titles to match your video -->
+      <ol class="chapters">
+        <li><time>0:00</time><span>The problem and the five teams involved</span></li>
+        <li><time>1:00</time><span>Data model and modules</span></li>
+        <li><time>2:30</time><span>Following one student from inquiry to application</span></li>
+        <li><time>4:00</time><span>Automation and testing center scheduling</span></li>
+        <li><time>5:30</time><span>Role-based views and the leadership dashboard</span></li>
+      </ol>
+
+      <article class="prose" style="padding: 48px 0 clamp(56px, 8vw, 96px);">
+        <h2>What I learned</h2>
+        <!-- Draft: rewrite this in your own words -->
+        <p>The hardest problems weren't technical. Several came down to ownership: nobody was sure who enrolled a student or who updated an outcome, so it often didn't happen. A CRM can make ownership visible with assigned records, stages and notifications, but only after the team agrees who owns each step. Asking those questions early saved me from automating a process that wasn't settled yet.</p>
+
+        <h2>What I'd add next</h2>
+        <p>A record retention schedule based on Utah requirements, automatic waitlist offers with a response deadline, and a connection to the support coordinators' attendance trackers so student progress lives on the same record.</p>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="mailto:cashgines89@gmail.com">Ask me about this project</a>
+          <a class="btn btn-secondary" href="../projects.html">See all projects</a>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <h2>Let's talk</h2>
+      <p>I'm open to CRM administration, business systems and data roles, full-time or freelance.</p>
+      <ul class="footer-links">
+        <li><a href="mailto:cashgines89@gmail.com">cashgines89@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/your-profile">LinkedIn</a></li>
+        <li><a href="https://github.com/your-username">GitHub</a></li>
+      </ul>
+      <p class="footer-meta">© 2026 Cash Gines · Southern Utah</p>
+    </div>
+  </footer>
+</body>
+</html>
