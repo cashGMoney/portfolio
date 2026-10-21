@@ -1,36 +1,21 @@
-/* Sends the contact form in the background and shows a message on the page. */
+/* Sizes the Zoho Forms frame to fit the whole form, so it never scrolls
+   inside itself. Zoho sends the form's height when the link ends with
+   ?zf_rszfm=1. This is the same method as Zoho's own JavaScript embed. */
 (function () {
   "use strict";
-  var form = document.querySelector(".contact-form");
-  if (!form) return;
-  var status = form.querySelector(".form-status");
-  var button = form.querySelector("button[type=submit]");
-
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    if (form.action.indexOf("YOUR_FORM_ID") !== -1) {
-      status.className = "form-status is-error";
-      status.textContent = "This form isn't connected yet. Add your Formspree form ID in contact.html.";
-      return;
+  window.addEventListener("message", function (event) {
+    if (!/\.zohopublic\.com$/.test(new URL(event.origin).hostname)) return;
+    if (typeof event.data !== "string") return;
+    var parts = event.data.split("|");
+    if (parts.length < 2) return;
+    var perma = parts[0];
+    var height = parseInt(parts[1], 10);
+    if (!perma || !height) return;
+    var frames = document.querySelectorAll(".zoho-form iframe");
+    for (var i = 0; i < frames.length; i++) {
+      if (frames[i].src.indexOf(perma) !== -1) {
+        frames[i].style.height = (height + 15) + "px";
+      }
     }
-    button.disabled = true;
-    button.textContent = "Sending…";
-    status.className = "form-status";
-    status.textContent = "";
-    fetch(form.action, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } })
-      .then(function (res) {
-        if (!res.ok) throw new Error();
-        form.reset();
-        status.className = "form-status is-success";
-        status.textContent = "Thanks, your message was sent. I'll be in touch soon.";
-      })
-      .catch(function () {
-        status.className = "form-status is-error";
-        status.textContent = "Your message didn't send. Please try again, or reach me on LinkedIn.";
-      })
-      .then(function () {
-        button.disabled = false;
-        button.textContent = "Send message";
-      });
-  });
+  }, false);
 })();
