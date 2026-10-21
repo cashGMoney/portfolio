@@ -123,25 +123,35 @@ p { margin: 0 0 1em; max-width: 68ch; }
 .btn-secondary { background: transparent; color: var(--accent); }
 .btn-secondary:hover { background: var(--accent-soft); color: var(--accent-dark); }
 
-/* ---------- Sections ---------- */
+/* ---------- Sections ----------
+   Every top-level block in <main> uses the same vertical rhythm,
+   and each one after the first gets a divider line. */
 
 main { display: block; }
-.section { padding: clamp(56px, 8vw, 96px) 0; }
-.section + .section { border-top: 1px solid var(--line); }
+.section,
+.hero { padding: clamp(56px, 8vw, 96px) 0; }
+main > * + .section { border-top: 1px solid var(--line); }
 .section-intro { margin-bottom: 36px; }
+.section-intro > :last-child { margin-bottom: 0; }
 .lead { font-size: 1.2rem; color: var(--text); }
 .muted { color: var(--muted); }
 
-/* ---------- Home hero ---------- */
+/* ---------- Home hero: text on the left, pipeline on the right ---------- */
 
-.hero { padding: clamp(56px, 9vw, 112px) 0 clamp(48px, 7vw, 80px); }
-.hero h1 { max-width: 16ch; }
-.hero .lead { max-width: 52ch; }
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: clamp(32px, 6vw, 80px);
+  align-items: center;
+}
+@media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } }
+.hero h1 { max-width: 15ch; }
+.hero .lead { max-width: 46ch; }
 
-/* The pipeline strip: the one signature visual on the site.
+/* The pipeline: the one signature visual on the site.
    Rename the stages to match your own Zoho build. */
 .pipeline {
-  margin: clamp(48px, 7vw, 72px) 0 0;
+  margin: 0;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -153,34 +163,24 @@ main { display: block; }
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 0;
+  gap: 6px;
 }
 .pipeline li {
-  position: relative;
-  padding: 14px 16px 14px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  padding: 11px 16px;
   background: var(--accent-soft);
+  border-left: 4px solid var(--accent);
+  border-radius: 6px;
   color: var(--ink);
   font-weight: 600;
   font-size: 0.95rem;
-  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 0 100%, 14px 50%);
-  margin-right: -6px;
 }
-.pipeline li:first-child { clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 0 100%); border-radius: 6px 0 0 6px; }
-.pipeline li:last-child { background: var(--accent); color: #fff; margin-right: 0; }
-.pipeline li span { display: block; font-weight: 400; font-size: 0.82rem; color: var(--muted); }
+.pipeline li span { font-weight: 400; font-size: 0.85rem; color: var(--muted); text-align: right; }
+.pipeline li:last-child { background: var(--accent); color: #fff; }
 .pipeline li:last-child span { color: #d6ecea; }
-
-@media (max-width: 720px) {
-  .pipeline ol { grid-template-columns: 1fr; gap: 6px; }
-  .pipeline li,
-  .pipeline li:first-child {
-    clip-path: none;
-    margin-right: 0;
-    border-radius: 6px;
-    border-left: 4px solid var(--accent);
-  }
-}
 
 /* ---------- Featured project ---------- */
 
@@ -260,6 +260,7 @@ main { display: block; }
 /* ---------- Case study ---------- */
 
 .case-header { padding: clamp(48px, 8vw, 88px) 0 32px; }
+.case-header h1, .case-header .lead { max-width: none; }
 .back-link { display: inline-block; margin-bottom: 24px; font-weight: 500; text-decoration: none; }
 .case-header h1 { max-width: 22ch; }
 
@@ -276,15 +277,26 @@ main { display: block; }
 .facts dt { font-size: 0.85rem; color: var(--muted); }
 .facts dd { margin: 2px 0 0; color: var(--ink); font-weight: 600; }
 
-.case-video { padding-bottom: clamp(40px, 6vw, 64px); }
+.case-video { padding-bottom: 8px; }
 
 .prose { max-width: 720px; }
+
+.wrap-narrow { max-width: calc(800px + 2 * var(--gutter)); }
+.case-body { padding: 48px 0 clamp(56px, 8vw, 96px); }
+.media-frame img.fit-contain { object-fit: contain; background: #eef0f8; }
+.case-body p, .case-body ul { max-width: none; }
+main .case-body h2 { margin-top: 56px; }
+main .case-body > h2:first-child { margin-top: 0; }
+.case-body ul:not([class]) { padding-left: 1.2em; }
+.case-body ul:not([class]) li { margin-bottom: 0.5em; }
+.case-body .chapters, .case-body .problems, .case-body .figure { max-width: none; margin-top: 20px; }
+.case-body .figure { margin-top: 32px; }
 .prose h2 { margin-top: 2.2em; }
 .prose h2:first-child { margin-top: 0; }
 .prose ul { padding-left: 1.2em; max-width: 66ch; }
 .prose li { margin-bottom: 0.5em; }
 
-.chapters { list-style: none; padding: 0; margin: 0; max-width: 720px; }
+.chapters { list-style: none; padding: 0; margin: 0; }
 .chapters li {
   display: grid;
   grid-template-columns: 64px 1fr;
@@ -368,7 +380,7 @@ main { display: block; }
 
 /* ---------- Case study extras ---------- */
 
-.figure { margin: 8px 0 0; max-width: 960px; }
+.figure { margin: 0; }
 .figure img {
   width: 100%;
   border: 1px solid var(--line);
@@ -377,9 +389,8 @@ main { display: block; }
 }
 .figure figcaption { font-size: 0.92rem; color: var(--muted); margin-top: 10px; }
 
-.problems { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 40px; max-width: 960px; }
+.problems { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 40px; }
 @media (max-width: 720px) { .problems { grid-template-columns: 1fr; } }
 .problems li { padding: 16px 0; border-top: 1px solid var(--line); }
 .problems strong { display: block; color: var(--ink); }
 
-.pipeline li { font-size: 0.9rem; }

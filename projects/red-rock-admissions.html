@@ -30,7 +30,7 @@
   </header>
 
   <main id="main">
-    <div class="wrap">
+    <div class="wrap wrap-narrow">
       <header class="case-header">
         <a class="back-link" href="../projects.html">All projects</a>
         <h1>An admissions CRM for Red Rock Technical College</h1>
@@ -42,7 +42,6 @@
           <div><dt>Context</dt><dd>CRM Administration, Dixie Tech</dd></div>
         </dl>
       </header>
-
       <section class="case-video" aria-label="Video walkthrough">
         <div class="media-frame">
           <!-- Paste your YouTube embed here (YouTube > Share > Embed), for example:
@@ -54,7 +53,7 @@
         </div>
       </section>
 
-      <article class="prose">
+      <article class="case-body">
         <h2>The problem</h2>
         <p>Red Rock Technical College is a fictional school whose front desk, admissions advisors, testing center, support coordinators and registrar all worked from one spreadsheet. It had more than 1,000 rows, everyone could edit it, and every filtered view one person made changed it for everyone else.</p>
         <p>Hand-offs happened by email and phone, so details were lost between teams. Students repeated themselves after every transfer. Social Security numbers and disability answers were visible to staff who never needed them. Waitlisted students heard about open seats too late, and those seats went empty.</p>
@@ -66,11 +65,7 @@
           <li>A data model and data glossary defining each module, field and relationship</li>
           <li>A client proposal that pairs every problem with its fix and lists what the college needs to provide</li>
         </ul>
-      </article>
-    </div>
 
-    <section class="section" style="padding-top: 24px;">
-      <div class="wrap">
         <h2>What I found</h2>
         <ul class="problems">
           <li><strong>Everyone could edit everything</strong>One spreadsheet for every team, with no limits on access.</li>
@@ -80,11 +75,7 @@
           <li><strong>Testing results got lost</strong>Scores were emailed, sometimes entered wrong and sometimes never arrived.</li>
           <li><strong>Seats went empty</strong>The waitlist was worked by hand, so students were notified too late or not at all.</li>
         </ul>
-      </div>
-    </section>
 
-    <div class="wrap">
-      <article class="prose">
         <h2>The solution</h2>
         <ul>
           <li><strong>Connected records instead of one sheet.</strong> Ten related modules for inquiries, applications, testing, programs, courses, cohorts, enrollment and costs, linked so information is entered once and flows forward.</li>
@@ -94,18 +85,13 @@
           <li><strong>Online test scheduling.</strong> Students book Accuplacer sessions through Zoho Bookings, can flag ADA accommodations, and results go straight onto their record.</li>
           <li><strong>A live leadership dashboard.</strong> Applicants, acceptances, cohort fill levels and waitlists by program, so nobody builds reports by hand.</li>
         </ul>
-      </article>
-
-      <figure class="figure" style="margin-top: 40px;">
+      <figure class="figure">
         <img src="../assets/img/red-rock-data-model.png" alt="Data model diagram showing ten connected Zoho modules: Inquiries, Applications, Testing Center, Enrolled, Programs, Courses, Cohorts, Books, Materials and Associated Costs.">
         <figcaption>The data model. Cohorts sit at the center, connecting programs and courses to the students who apply, enroll and pay for books and materials.</figcaption>
       </figure>
 
-      <article class="prose" style="margin-top: 56px;">
         <h2>Walkthrough chapters</h2>
         <p>Jump to a section of the video.</p>
-      </article>
-
       <!-- Update these times and titles to match your video -->
       <ol class="chapters">
         <li><time>0:00</time><span>The problem and the five teams involved</span></li>
@@ -115,7 +101,6 @@
         <li><time>5:30</time><span>Role-based views and the leadership dashboard</span></li>
       </ol>
 
-      <article class="prose" style="padding: 48px 0 clamp(56px, 8vw, 96px);">
         <h2>What I learned</h2>
         <!-- Draft: rewrite this in your own words -->
         <p>The hardest problems weren't technical. Several came down to ownership: nobody was sure who enrolled a student or who updated an outcome, so it often didn't happen. A CRM can make ownership visible with assigned records, stages and notifications, but only after the team agrees who owns each step. Asking those questions early saved me from automating a process that wasn't settled yet.</p>
