@@ -170,6 +170,17 @@ main { display: block; }
 @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } }
 .hero h1 { margin-bottom: 0; }
 .accent-text { color: var(--accent); }
+.underline-pop { position: relative; white-space: nowrap; }
+.underline-pop::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0.25em;
+  bottom: -0.08em;
+  height: 0.14em;
+  border-radius: 4px;
+  background: #e8a33d;
+}
 .hero .lead { margin-bottom: 0; }
 
 /* The pipeline strip: the one signature visual on the site.
