@@ -169,6 +169,7 @@ main { display: block; }
 }
 @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } }
 .hero h1 { margin-bottom: 0; }
+.accent-text { color: var(--accent); }
 .hero .lead { margin-bottom: 0; }
 
 /* The pipeline strip: the one signature visual on the site.
