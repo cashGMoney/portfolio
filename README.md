@@ -19,7 +19,7 @@ Your name, email and project content are already in place. Remaining:
 
 - **Headshot (optional).** To swap in a professional photo, replace the four `assets/img/headshot-*.jpg` files (320, 640, 960 and 1200 pixels wide, 4:5 portrait) with versions of the new photo, keeping the same names.
 - **Resume (later).** The resume was removed for now. When it's updated, ask to add the View resume pop-up back to the About page.
-- **Video.** Paste your YouTube embed into `projects/red-rock-admissions.html` (look for the comment), then update the chapter times.
+- **Videos.** The case study has a six-part video series. Upload each video to YouTube as Unlisted, then in `projects/red-rock-admissions.html` paste its link inside the matching `data-video=""` (look for the comment). Optionally add the length in the `vs-length` span. Parts without a link show "Coming soon".
 - **Screenshot (optional).** The home and projects pages use the data model image. Swap in a screenshot of your Zoho build if you prefer.
 
 ## Preview locally

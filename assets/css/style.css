@@ -855,3 +855,87 @@ main .case-body > h2:first-child { margin-top: 0; }
   .doc-thumb { width: 96px; flex-shrink: 0; aspect-ratio: auto; border-bottom: 0; border-right: 1px solid var(--line); }
   .doc-body { padding: 12px 14px; }
 }
+
+/* ---------- Video series (case study) ---------- */
+
+.video-series {
+  display: grid;
+  grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+  padding-bottom: 8px;
+}
+@media (max-width: 900px) { .video-series { grid-template-columns: 1fr; } }
+.vs-player .media-frame { box-shadow: var(--shadow-lg); }
+.vs-placeholder { flex-direction: column; gap: 6px; display: flex; align-items: center; justify-content: center; }
+.vs-ph-title { color: #fff; font-weight: 650; font-size: 1.2rem; }
+.vs-now { margin: 12px 2px 0; font-size: 0.92rem; color: var(--muted); max-width: none; }
+.vs-list {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px;
+}
+.vs-heading { font-size: 1.1rem; margin: 2px 6px 12px; }
+.vs-list ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.vs-item {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+.vs-item:hover { background: var(--band); }
+.vs-item.is-active { background: var(--accent-soft); border-color: #bcdcd7; }
+.vs-num {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--surface);
+  border: 1.5px solid #bcdcd7;
+}
+.vs-item.is-active .vs-num { background: var(--accent); border-color: var(--accent); color: #fff; }
+.vs-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.vs-title { font-weight: 650; color: var(--ink); line-height: 1.3; }
+.vs-desc { font-size: 0.86rem; color: var(--text); line-height: 1.45; }
+.vs-meta { display: flex; gap: 8px; margin-top: 2px; font-size: 0.78rem; color: var(--muted); }
+.vs-soon {
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: #fcf2e3;
+  color: #8a5a12;
+  font-weight: 600;
+}
+.vs-item.is-ready .vs-soon { display: none; }
+@media (prefers-reduced-motion: reduce) { .vs-item { transition: none; } }
+/* Compact list: title and status on one line, description only for the selected part */
+.vs-item { align-items: flex-start; padding: 9px 10px; }
+.vs-text { flex: 1; flex-direction: row; flex-wrap: wrap; align-items: center; column-gap: 8px; row-gap: 2px; padding-top: 3px; }
+.vs-title { flex: 1 1 auto; }
+.vs-meta { margin-top: 0; margin-left: auto; }
+.vs-desc { display: none; flex-basis: 100%; margin-top: 2px; }
+.vs-item.is-active .vs-desc { display: block; }
+/* The selected part's description shows under the player instead of in the list */
+.vs-item .vs-desc, .vs-item.is-active .vs-desc { display: none; }
+.vs-text { padding-top: 2px; }
+.vs-caption { margin: 14px 2px 0; }
+.vs-caption .vs-now { margin: 0 0 2px; font-size: 0.85rem; font-weight: 600; color: var(--accent); }
+.vs-cap-title { margin: 0 0 4px; font-size: 1.25rem; }
+.vs-cap-desc { margin: 0; color: var(--text); max-width: 60ch; }
+.vs-text { flex-wrap: nowrap; align-items: flex-start; }
+.vs-title { min-width: 0; }
+.vs-meta { flex-shrink: 0; padding-top: 1px; }

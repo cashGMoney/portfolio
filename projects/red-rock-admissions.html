@@ -15,6 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/style.css">
   <script src="../assets/js/data-model.js" defer></script>
+  <script src="../assets/js/video-series.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -47,17 +48,92 @@
       </div>
     </section>
 
-    <div class="wrap wrap-narrow">
-      <section class="case-video" aria-label="Video walkthrough">
-        <div class="media-frame">
-          <!-- Paste your YouTube embed here (YouTube > Share > Embed), for example:
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Red Rock admissions CRM walkthrough"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
-          -->
-          <div class="media-placeholder">Your walkthrough video goes here</div>
+    <div class="wrap">
+      <section class="case-video video-series" aria-label="Video walkthrough series">
+        <div class="vs-player">
+          <div class="media-frame">
+            <div class="media-placeholder vs-placeholder">
+              <span class="vs-ph-title">Introduction and overview</span>
+              <span>Video coming soon</span>
+            </div>
+          </div>
+          <div class="vs-caption" aria-live="polite">
+            <p class="vs-now">Part 1 of 6</p>
+            <h3 class="vs-cap-title">Introduction and overview</h3>
+            <p class="vs-cap-desc">The problem, the five teams and a tour of the data model.</p>
+          </div>
+        </div>
+        <div class="vs-list">
+          <h2 class="vs-heading">Walkthrough series</h2>
+          <!-- To add a video: upload it to YouTube as Unlisted, then paste its link inside data-video="".
+               Optional: add its length inside the vs-length span, e.g. 4:32. -->
+          <ol>
+              <li>
+                <button type="button" class="vs-item" data-video="" data-title="Introduction and overview">
+                  <span class="vs-num">1</span>
+                  <span class="vs-text">
+                    <span class="vs-title">Introduction and overview</span>
+                    <span class="vs-desc">The problem, the five teams and a tour of the data model.</span>
+                    <span class="vs-meta"><span class="vs-length"></span><span class="vs-soon">Coming soon</span></span>
+                  </span>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="vs-item" data-video="" data-title="Registrar">
+                  <span class="vs-num">2</span>
+                  <span class="vs-text">
+                    <span class="vs-title">Registrar</span>
+                    <span class="vs-desc">Setting up programs, courses and cohorts, including seat limits.</span>
+                    <span class="vs-meta"><span class="vs-length"></span><span class="vs-soon">Coming soon</span></span>
+                  </span>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="vs-item" data-video="" data-title="Front desk">
+                  <span class="vs-num">3</span>
+                  <span class="vs-text">
+                    <span class="vs-title">Front desk</span>
+                    <span class="vs-desc">Logging an inquiry and checking a student's status without seeing sensitive data.</span>
+                    <span class="vs-meta"><span class="vs-length"></span><span class="vs-soon">Coming soon</span></span>
+                  </span>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="vs-item" data-video="" data-title="Admissions advisor">
+                  <span class="vs-num">4</span>
+                  <span class="vs-text">
+                    <span class="vs-title">Admissions advisor</span>
+                    <span class="vs-desc">Turning an inquiry into an application and tracking documents and test scores.</span>
+                    <span class="vs-meta"><span class="vs-length"></span><span class="vs-soon">Coming soon</span></span>
+                  </span>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="vs-item" data-video="" data-title="Testing coordinator">
+                  <span class="vs-num">5</span>
+                  <span class="vs-text">
+                    <span class="vs-title">Testing coordinator</span>
+                    <span class="vs-desc">Booking Accuplacer sessions and recording results on the student's record.</span>
+                    <span class="vs-meta"><span class="vs-length"></span><span class="vs-soon">Coming soon</span></span>
+                  </span>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="vs-item" data-video="" data-title="Support coordinator">
+                  <span class="vs-num">6</span>
+                  <span class="vs-text">
+                    <span class="vs-title">Support coordinator</span>
+                    <span class="vs-desc">Reviewing complete applications, acceptance, the waitlist and enrollment.</span>
+                    <span class="vs-meta"><span class="vs-length"></span><span class="vs-soon">Coming soon</span></span>
+                  </span>
+                </button>
+              </li>
+          </ol>
         </div>
       </section>
+    </div>
+
+    <div class="wrap wrap-narrow">
 
       <article class="case-body">
         <h2>The problem</h2>
@@ -97,16 +173,6 @@
         <figcaption>The data model. Select any module to highlight what it connects to. Cohorts sit at the center, linking programs and courses to the students who apply, enroll and pay for books and materials.</figcaption>
       </figure>
 
-        <h2>Walkthrough chapters</h2>
-        <p>Jump to a section of the video.</p>
-      <!-- Update these times and titles to match your video -->
-      <ol class="chapters">
-        <li><time>0:00</time><span>The problem and the five teams involved</span></li>
-        <li><time>1:00</time><span>Data model and modules</span></li>
-        <li><time>2:30</time><span>Following one student from inquiry to application</span></li>
-        <li><time>4:00</time><span>Automation and testing center scheduling</span></li>
-        <li><time>5:30</time><span>Role-based views and the leadership dashboard</span></li>
-      </ol>
 
         <h2>Project documents</h2>
         <p>The deliverables I produced along the way, in the order the project ran. Each opens as a PDF in a new tab.</p>
