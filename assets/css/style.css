@@ -171,15 +171,16 @@ main { display: block; }
 .hero h1 { margin-bottom: 0; }
 .accent-text { color: var(--accent); }
 .underline-pop { position: relative; white-space: nowrap; }
+/* Hand-drawn double stroke under "actually use." */
 .underline-pop::after {
   content: "";
   position: absolute;
   left: 0;
-  right: 0.25em;
-  bottom: -0.08em;
-  height: 0.14em;
-  border-radius: 4px;
-  background: #e8a33d;
+  right: 0;
+  bottom: -0.24em;
+  height: 0.44em;
+  background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%20200%2024%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M5%2012%20C%2060%206%2C%20130%205%2C%20195%208%20M16%2019%20C%2072%2014%2C%20140%2013%2C%20186%2016%27%20fill%3D%27none%27%20stroke%3D%27%23e8a33d%27%20stroke-width%3D%276.5%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27/%3E%3C/svg%3E") no-repeat center / 100% 100%;
+  pointer-events: none;
 }
 .hero .lead { margin-bottom: 0; }
 
