@@ -12,13 +12,13 @@ A plain HTML and CSS portfolio that runs on GitHub Pages. No build tools needed.
 | `about.html` | Bio, skills, experience, education |
 | `assets/css/style.css` | All styling. Colors and font are at the top. |
 | `assets/img/` | Screenshots, headshot, favicon |
-| `assets/resume.pdf` | Add your resume here (the Resume links point to it) |
 
 ## Still to fill in
 
-Your name, email, resume and project content are already in place. Remaining:
+Your name, email and project content are already in place. Remaining:
 
 - **Headshot (optional).** To swap in a professional photo, replace the four `assets/img/headshot-*.jpg` files (320, 640, 960 and 1200 pixels wide, 4:5 portrait) with versions of the new photo, keeping the same names.
+- **Resume (later).** The resume was removed for now. When it's updated, ask to add the View resume pop-up back to the About page.
 - **Video.** Paste your YouTube embed into `projects/red-rock-admissions.html` (look for the comment), then update the chapter times.
 - **Screenshot (optional).** The home and projects pages use the data model image. Swap in a screenshot of your Zoho build if you prefer.
 
