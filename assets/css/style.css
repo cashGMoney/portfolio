@@ -940,3 +940,5 @@ main .case-body > h2:first-child { margin-top: 0; }
 .vs-text { flex-wrap: nowrap; align-items: flex-start; }
 .vs-title { min-width: 0; }
 .vs-meta { flex-shrink: 0; padding-top: 1px; }
+/* Loom records at 16:10, so the series player matches that shape */
+.vs-player .media-frame { aspect-ratio: 16 / 10; }

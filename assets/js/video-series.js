@@ -1,6 +1,6 @@
 /* Video series on the case study. Each list item's data-video holds a
-   YouTube link (any format) or video ID. Items without one show
-   "Coming soon". Nothing autoplays on page load. */
+   YouTube or Loom share link. Items without one show "Coming soon".
+   Nothing autoplays on page load. */
 (function () {
   "use strict";
 
@@ -10,6 +10,16 @@
     var m = value.match(/(?:youtu\.be\/|v=|embed\/|shorts\/|live\/)([A-Za-z0-9_-]{11})/);
     if (m) return m[1];
     return /^[A-Za-z0-9_-]{11}$/.test(value) ? value : "";
+  }
+
+  // Returns the embed address for a YouTube or Loom link, or "" if not recognized.
+  function embedUrl(value, autoplay) {
+    if (!value) return "";
+    var loom = value.match(/loom\.com\/(?:share|embed)\/([a-f0-9]{32})/i);
+    if (loom) return "https://www.loom.com/embed/" + loom[1] + "?hide_owner=true&hide_share=true&hideEmbedTopBar=true";
+    var yt = youTubeId(value);
+    if (yt) return "https://www.youtube-nocookie.com/embed/" + yt + "?rel=0&modestbranding=1" + (autoplay ? "&autoplay=1" : "");
+    return "";
   }
 
   function init() {
@@ -23,7 +33,7 @@
     var total = items.length;
 
     items.forEach(function (btn) {
-      var ready = !!youTubeId(btn.getAttribute("data-video"));
+      var ready = !!embedUrl(btn.getAttribute("data-video"));
       btn.classList.toggle("is-ready", ready);
       var len = btn.querySelector(".vs-length");
       if (len && !len.textContent.trim()) len.remove();
@@ -31,16 +41,16 @@
 
     function show(index, autoplay) {
       var btn = items[index];
-      var id = youTubeId(btn.getAttribute("data-video"));
+      var src = embedUrl(btn.getAttribute("data-video"), autoplay);
       var title = btn.getAttribute("data-title");
       items.forEach(function (b, i) {
         b.classList.toggle("is-active", i === index);
         b.setAttribute("aria-current", i === index ? "true" : "false");
       });
       frame.innerHTML = "";
-      if (id) {
+      if (src) {
         var iframe = document.createElement("iframe");
-        iframe.src = "https://www.youtube-nocookie.com/embed/" + id + "?rel=0&modestbranding=1" + (autoplay ? "&autoplay=1" : "");
+        iframe.src = src;
         iframe.title = title;
         iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
         iframe.allowFullscreen = true;
