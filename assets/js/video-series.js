@@ -72,7 +72,12 @@
     items.forEach(function (btn, i) {
       btn.addEventListener("click", function () { show(i, true); });
     });
-    show(0, false);
+    // Open on the first part that has a video, so visitors never land on "coming soon".
+    var first = 0;
+    for (var k = 0; k < total; k++) {
+      if (items[k].classList.contains("is-ready")) { first = k; break; }
+    }
+    show(first, false);
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
